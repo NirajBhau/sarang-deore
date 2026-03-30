@@ -248,9 +248,9 @@ export default function ProjectDetail() {
                 )}
                 {project.pptUrl ? (
                     <iframe 
-                      src={`https://docs.google.com/viewer?url=${encodeURIComponent(
+                      src={`https://view.officeapps.live.com/op/embed.aspx?src=${encodeURIComponent(
                         project.pptUrl.startsWith('http') ? project.pptUrl : `${window.location.origin}${project.pptUrl}`
-                      )}&embedded=true`}
+                      )}&wdAr=1.77&wdStartOn=1`}
                       className="w-full h-full"
                       frameBorder="0"
                       title="Project Presentation"
