@@ -235,7 +235,9 @@ export default function ProjectDetail() {
                 )}
                 {project.pptUrl ? (
                     <iframe 
-                      src={`https://view.officeapps.live.com/op/embed.aspx?src=${encodeURIComponent(project.pptUrl)}`}
+                      src={`https://view.officeapps.live.com/op/embed.aspx?src=${encodeURIComponent(
+                        project.pptUrl.startsWith('http') ? project.pptUrl : `${window.location.origin}${project.pptUrl}`
+                      )}`}
                       className="w-full h-full"
                       frameBorder="0"
                       title="Project Presentation"
