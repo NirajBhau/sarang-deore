@@ -26,7 +26,11 @@ export default function Home() {
           getActiveResume()
         ]);
         setProjectsData(proj && proj.length > 0 ? proj : PROJECTS_LIST);
-        if (res?.url) setResumeUrl(res.url);
+        if (res?.url) {
+          // Append ?dl to force download from Sanity CDN
+          const downloadUrl = res.url.includes('?') ? `${res.url}&dl=` : `${res.url}?dl=Sarang_Deore_Resume.pdf`;
+          setResumeUrl(downloadUrl);
+        }
       } catch (error) {
         console.error("Failed to fetch Sanity data, using local fallback:", error);
         setProjectsData(PROJECTS_LIST);
