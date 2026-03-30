@@ -17,9 +17,12 @@ export default function Resume() {
         ]);
         
         if (resumeData?.url) {
+          console.log("Found Sanity Resume URL (Resume Page):", resumeData.url);
           // Append ?dl to force download from Sanity CDN
           const downloadUrl = resumeData.url.includes('?') ? `${resumeData.url}&dl=` : `${resumeData.url}?dl=Sarang_Deore_Resume.pdf`;
           setResumeUrl(downloadUrl);
+        } else {
+          console.warn("No resume URL found in Sanity (Resume Page), using local fallback.");
         }
         setProjectsData(projects && projects.length > 0 ? projects : PROJECTS_LIST);
       } catch (error) {

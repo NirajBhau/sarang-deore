@@ -14,13 +14,14 @@ export function urlFor(source: any) {
   return builder.image(source);
 }
 
-// Helper to fetch the active resume
 export async function getActiveResume() {
-  const query = `*[_type == "resume" && _id == "active-resume"][0]{
+  // Query looks for any document of type "resume", prioritizing the most recently updated.
+  const query = `*[_type == "resume"] | order(_updatedAt desc)[0]{
     "url": resumeFile.asset->url,
     lastUpdated
   }`;
-  return await client.fetch(query);
+  // Always fetch with useCdn: false to ensure we get the latest uploaded file immediately
+  return await client.fetch(query, {}, { useCdn: false });
 }
 
 // Helper to fetch all projects
