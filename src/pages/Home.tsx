@@ -1,6 +1,6 @@
 import { 
   ArrowRight, School, HardHat, Calendar, Flag, BarChart3, Ruler, Code, 
-  Radar, Verified, Mail, Phone, MapPin, Loader2, CheckCircle2, Linkedin, 
+  Radar, Verified, Mail, MapPin, Loader2, Linkedin, 
   Presentation, GraduationCap, Target, Settings, Building2, Map, Plane 
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
@@ -11,12 +11,12 @@ import { getProjects, getActiveResume, urlFor } from '../lib/sanity';
 
 import sarangImg from '../assets/sarang.jfif';
 import structuralProfileImg from '../assets/structural_profile.png';
+import { PROJECTS_LIST } from '../lib/data';
 
 export default function Home() {
   const location = useLocation();
   const [projectsData, setProjectsData] = useState<any[]>([]);
   const [resumeUrl, setResumeUrl] = useState<string>('/Sarang_Deore_Resume.pdf');
-  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     async function fetchData() {
@@ -25,12 +25,11 @@ export default function Home() {
           getProjects(),
           getActiveResume()
         ]);
-        setProjectsData(proj);
+        setProjectsData(proj && proj.length > 0 ? proj : PROJECTS_LIST);
         if (res?.url) setResumeUrl(res.url);
       } catch (error) {
-        console.error("Failed to fetch Sanity data:", error);
-      } finally {
-        setIsLoading(false);
+        console.error("Failed to fetch Sanity data, using local fallback:", error);
+        setProjectsData(PROJECTS_LIST);
       }
     }
     fetchData();
@@ -136,7 +135,7 @@ export default function Home() {
               <span className="w-2 h-2 bg-[#8B7355] rounded-full"></span>
               <span className="font-sans text-[10px] uppercase tracking-widest font-bold text-[#8B7355]">SEEKING INTERNSHIP OPPORTUNITIES</span>
             </div>
-            <h1 className="font-serif text-6xl md:text-8xl font-bold tracking-tight text-slate-900 mb-8 leading-[1.1]">
+            <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-slate-900 mb-8 leading-[1.1]">
               <span className="text-[#0047AB]">Civil</span><br />
               <span className="text-[#0047AB]">Engineering</span> Undergraduate.
             </h1>
@@ -223,13 +222,13 @@ export default function Home() {
                   </div>
 
                   {/* New Stats Row */}
-                  <div className="flex items-center gap-12 pt-4 border-t border-slate-100">
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-6 sm:gap-12 pt-4 border-t border-slate-100">
                     <div className="flex flex-col">
                       <span className="text-4xl font-headline font-black text-slate-900 leading-none">8.8</span>
                       <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-2">CGPA Score</span>
                     </div>
                     
-                    <div className="w-[1px] h-12 bg-slate-200"></div>
+                    <div className="hidden sm:block w-[1px] h-12 bg-slate-200"></div>
 
                     <div className="flex flex-col">
                       <span className="text-xl font-headline font-bold text-slate-900 leading-none">L&T EduTech</span>
@@ -252,7 +251,7 @@ export default function Home() {
                     <h3 className="font-headline text-lg font-bold text-slate-900 tracking-tight">Interests & Specialization</h3>
                   </div>
 
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {[
                       { name: "Construction Management", icon: <Settings className="w-4 h-4" /> },
                       { name: "Structural Engineering", icon: <Building2 className="w-4 h-4" /> },
@@ -458,11 +457,11 @@ export default function Home() {
 
       {/* Projects Section */}
       <section className="py-24 bg-white" id="projects">
-        <div className="w-full px-4 md:px-24">
+        <div className="w-full px-6 sm:px-12 md:px-24">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-8">
             <div>
               <span className="font-sans text-[10px] uppercase tracking-[0.3em] text-[#8B7355] font-bold">PORTFOLIO</span>
-              <h2 className="font-serif text-5xl font-bold mt-4">Selected Works</h2>
+              <h2 className="font-serif text-4xl sm:text-5xl font-bold mt-4">Selected Works</h2>
             </div>
             <p className="max-w-xs text-slate-500 text-sm leading-relaxed font-sans">
               A curation of academic research, design competitions, and technical drafting.
@@ -475,9 +474,9 @@ export default function Home() {
                 key={project._id || project.id}
                 to={`/project/${project.slug?.current || project.id}`} 
                 className={cn(
-                  "group relative overflow-hidden rounded-sm bg-slate-900",
+                  "group relative overflow-hidden rounded-sm bg-slate-900 w-full",
                   idx === 0 ? "md:col-span-8 aspect-[16/10]" : 
-                  idx === 1 ? "md:col-span-4" : 
+                  idx === 1 ? "md:col-span-4 aspect-[10/16] md:aspect-auto" : 
                   idx === 4 ? "md:col-span-12 aspect-[21/9]" : 
                   "md:col-span-6 aspect-video"
                 )}
@@ -544,7 +543,7 @@ export default function Home() {
 
       {/* Certifications Section */}
       <section className="py-24 bg-slate-50">
-        <div className="w-full px-[2in]">
+        <div className="w-full px-6 md:px-16 lg:px-[2in]">
           <div className="text-center mb-16 px-4">
             <span className="font-sans text-xs uppercase tracking-widest text-blue-600 font-bold">Expertise</span>
             <h2 className="font-headline text-3xl font-bold mt-2">Professional Certifications</h2>
@@ -595,10 +594,10 @@ export default function Home() {
       {/* Contact Section */}
       <section className="py-32 bg-white relative overflow-hidden" id="contact">
         <div className="w-full px-4 md:px-24 relative z-10">
-          <div className="grid md:grid-cols-2 gap-24">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24">
             <div>
               <span className="font-sans text-[10px] uppercase tracking-[0.3em] text-[#8B7355] font-bold">INQUIRY</span>
-              <h2 className="font-serif text-6xl font-bold mt-8 mb-16 leading-tight">Let's build something<br />enduring together.</h2>
+              <h2 className="font-serif text-5xl md:text-6xl font-bold mt-8 mb-16 leading-tight">Let's build something<br />enduring together.</h2>
               
               <div className="space-y-10">
                 <div className="flex items-center gap-6">
@@ -634,7 +633,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="bg-white p-12 rounded-sm shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-slate-50">
+            <div className="bg-white p-6 md:p-12 rounded-sm shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-slate-50">
               <form className="space-y-10" onSubmit={handleSubmit}>
                 <div className="space-y-2">
                   <label className="block text-[10px] font-bold uppercase tracking-widest text-slate-400">FULL NAME</label>

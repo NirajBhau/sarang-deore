@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
-import { Download, Printer, Mail, Phone, Linkedin, Globe, MapPin, Award, BookOpen, Briefcase, Cpu, GraduationCap, ChevronRight, ExternalLink, Zap, Target, ShieldCheck, Loader2 } from 'lucide-react';
+import { Download, Printer, Mail, Phone, Linkedin, MapPin, Award, ChevronRight, ExternalLink, Target, ShieldCheck } from 'lucide-react';
 import { getActiveResume, getProjects } from '../lib/sanity';
+import { PROJECTS_LIST } from '../lib/data';
 
 export default function Resume() {
   const [resumeUrl, setResumeUrl] = useState<string>('/Sarang_Deore_Resume.pdf');
   const [projectsData, setProjectsData] = useState<any[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     async function fetchData() {
@@ -19,11 +19,10 @@ export default function Resume() {
         if (resumeData?.url) {
           setResumeUrl(resumeData.url);
         }
-        setProjectsData(projects);
+        setProjectsData(projects && projects.length > 0 ? projects : PROJECTS_LIST);
       } catch (error) {
         console.error("Error fetching data from Sanity:", error);
-      } finally {
-        setIsLoading(false);
+        setProjectsData(PROJECTS_LIST);
       }
     }
     fetchData();
@@ -34,11 +33,11 @@ export default function Resume() {
   };
 
   return (
-    <div className="min-h-screen bg-white pt-32 pb-24 font-sans text-slate-900 selection:bg-blue-100">
+    <div className="min-h-screen bg-white pt-24 sm:pt-32 pb-24 font-sans text-slate-900 selection:bg-blue-100 overflow-x-hidden">
       {/* Blueprint Background Pattern */}
       <div className="fixed inset-0 blueprint-grid opacity-50 pointer-events-none z-0"></div>
 
-      <div className="w-full px-[0.5in] relative z-10">
+      <div className="w-full px-4 sm:px-8 md:px-12 lg:px-[0.5in] relative z-10">
         {/* Print / Export Actions */}
         <div className="flex justify-end items-center mb-12 no-print">
           <div className="flex gap-3">
@@ -69,7 +68,7 @@ export default function Resume() {
           className="grid grid-cols-1 lg:grid-cols-12 gap-px bg-slate-200 border border-slate-200 overflow-hidden rounded-sm shadow-2xl print:shadow-none print:border-slate-900 print:bg-white"
         >
           {/* Section: Header / Profile */}
-          <div className="lg:col-span-8 bg-white p-12 md:p-16 flex flex-col justify-center border-b lg:border-b-0 lg:border-r border-slate-200 print:border-slate-900">
+          <div className="lg:col-span-8 bg-white p-6 md:p-16 flex flex-col justify-center border-b lg:border-b-0 lg:border-r border-slate-200 print:border-slate-900">
             <motion.div
               initial={{ x: -20, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
@@ -79,7 +78,7 @@ export default function Resume() {
                 <ShieldCheck className="w-3 h-3" />
                 Verified Civil Engineer
               </div>
-              <h1 className="text-6xl md:text-9xl font-serif font-bold text-slate-900 mb-8 leading-[0.85] tracking-tighter">
+              <h1 className="text-5xl sm:text-6xl md:text-9xl font-serif font-bold text-slate-900 mb-8 leading-[0.85] tracking-tighter">
                 Sarang<br />Deore
               </h1>
               <p className="text-xl md:text-2xl text-slate-500 font-medium max-w-2xl leading-relaxed">
@@ -90,7 +89,7 @@ export default function Resume() {
           </div>
 
           {/* Section: Contact Info */}
-          <div className="lg:col-span-4 bg-slate-50 p-12 flex flex-col justify-between print:bg-white">
+          <div className="lg:col-span-4 bg-slate-50 p-6 md:p-12 flex flex-col justify-between print:bg-white">
             <div className="space-y-8">
               <h3 className="text-[10px] font-black text-slate-400 uppercase tracking-[0.3em]">Communication Node</h3>
               <div className="space-y-6">
@@ -118,21 +117,21 @@ export default function Resume() {
           </div>
 
           {/* Section: Summary / Mission */}
-          <div className="lg:col-span-12 bg-slate-900 p-12 md:p-16 text-white relative overflow-hidden">
+          <div className="lg:col-span-12 bg-slate-900 p-6 md:p-16 text-white relative overflow-hidden">
             <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl -mr-32 -mt-32"></div>
             <div className="max-w-5xl relative z-10">
               <h3 className="text-[10px] font-black text-blue-400 uppercase tracking-[0.3em] mb-10 flex items-center gap-3">
                 <Target className="w-4 h-4" />
                 Professional Summary
               </h3>
-              <p className="text-2xl md:text-3xl font-serif leading-[1.4] opacity-95">
+              <p className="text-xl sm:text-2xl md:text-3xl font-serif leading-[1.4] opacity-95">
                 "Civil Engineering undergraduate with interests in <span className="text-blue-400 font-bold italic">Construction Management</span> and <span className="text-blue-400 font-bold italic">Structural Engineering</span>. Completed Project Management in Construction Specialization by L&T EduTech, with practical knowledge of planning, scheduling, and cost control. Currently learning GIS, Remote Sensing, and Drone Surveying."
               </p>
             </div>
           </div>
 
           {/* Section: Experience */}
-          <div className="lg:col-span-12 bg-white p-12 md:p-16 border-b border-slate-200 print:border-slate-900">
+          <div className="lg:col-span-12 bg-white p-6 md:p-16 border-b border-slate-200 print:border-slate-900">
             <h3 className="text-[10px] font-black text-slate-400 uppercase tracking-[0.3em] mb-12">Professional Experience</h3>
             <div className="space-y-16">
               <ExperienceItem 
@@ -170,7 +169,7 @@ export default function Resume() {
           </div>
 
           {/* Section: Skills Grid */}
-          <div className="lg:col-span-5 bg-white p-12 border-b lg:border-b-0 lg:border-r border-slate-200 print:border-slate-900">
+          <div className="lg:col-span-5 bg-white p-6 md:p-12 border-b lg:border-b-0 lg:border-r border-slate-200 print:border-slate-900">
             <h3 className="text-[10px] font-black text-slate-400 uppercase tracking-[0.3em] mb-12">Technical Stack</h3>
             <div className="space-y-12">
               <SkillCategory 
@@ -189,7 +188,7 @@ export default function Resume() {
           </div>
 
           {/* Section: Projects List */}
-          <div className="lg:col-span-7 bg-slate-50 p-12 md:p-16 print:bg-white">
+          <div className="lg:col-span-7 bg-slate-50 p-6 md:p-16 print:bg-white">
             <h3 className="text-[10px] font-black text-slate-400 uppercase tracking-[0.3em] mb-12">Project Portfolio</h3>
             <div className="space-y-16">
               {projectsData.map((project) => (
@@ -207,7 +206,7 @@ export default function Resume() {
 
           {/* Section: Education & Certs */}
           <div className="lg:col-span-12 grid grid-cols-1 md:grid-cols-2 gap-px bg-slate-200 border-t border-slate-200 print:border-slate-900">
-            <div className="bg-white p-12 md:p-16">
+            <div className="bg-white p-6 md:p-16">
               <h3 className="text-[10px] font-black text-slate-400 uppercase tracking-[0.3em] mb-12">Academic Trajectory</h3>
               <div className="space-y-12">
                 <div className="group">
@@ -241,7 +240,7 @@ export default function Resume() {
                 </div>
               </div>
             </div>
-            <div className="bg-white p-12 md:p-16">
+            <div className="bg-white p-6 md:p-16">
               <h3 className="text-[10px] font-black text-slate-400 uppercase tracking-[0.3em] mb-12">Industry Accreditations</h3>
               <div className="space-y-6">
                 <CertCard title="Project Management in Construction" org="L&T EduTech" date="2024" />
