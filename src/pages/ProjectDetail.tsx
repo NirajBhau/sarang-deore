@@ -212,13 +212,26 @@ export default function ProjectDetail() {
                     <div className="w-8 h-[2px] bg-red-600"></div>
                     <h2 className="text-xl font-headline font-bold text-slate-900 uppercase tracking-widest">Technical Presentation Preview</h2>
                 </div>
-                <button 
-                    onClick={togglePPTFullscreen}
-                    className="flex items-center gap-2 p-2 rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition-colors"
-                >
-                    {isPPTMaximized ? <Minimize2 className="w-5 h-5" /> : <Maximize2 className="w-5 h-5" />}
-                    <span className="text-[10px] font-black uppercase tracking-widest">{isPPTMaximized ? "Minimize View" : "Maximize View"}</span>
-                </button>
+                <div className="flex items-center gap-3">
+                    {project.pptUrl && (
+                      <a 
+                        href={project.pptUrl.startsWith('http') ? project.pptUrl : `${window.location.origin}${project.pptUrl}`}
+                        download
+                        className="flex items-center gap-2 px-3 py-2 rounded-lg bg-blue-50 text-blue-600 hover:bg-blue-100 transition-colors border border-blue-100"
+                        title="Download Presentation"
+                      >
+                        <Download className="w-4 h-4" />
+                        <span className="text-[10px] font-black uppercase tracking-widest hidden sm:inline">Download PPT</span>
+                      </a>
+                    )}
+                    <button 
+                        onClick={togglePPTFullscreen}
+                        className="flex items-center gap-2 p-2 rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition-colors"
+                    >
+                        {isPPTMaximized ? <Minimize2 className="w-5 h-5" /> : <Maximize2 className="w-5 h-5" />}
+                        <span className="text-[10px] font-black uppercase tracking-widest">{isPPTMaximized ? "Minimize View" : "Maximize View"}</span>
+                    </button>
+                </div>
              </div>
 
              <div className={cn(
@@ -235,9 +248,9 @@ export default function ProjectDetail() {
                 )}
                 {project.pptUrl ? (
                     <iframe 
-                      src={`https://view.officeapps.live.com/op/embed.aspx?src=${encodeURIComponent(
+                      src={`https://docs.google.com/viewer?url=${encodeURIComponent(
                         project.pptUrl.startsWith('http') ? project.pptUrl : `${window.location.origin}${project.pptUrl}`
-                      )}`}
+                      )}&embedded=true`}
                       className="w-full h-full"
                       frameBorder="0"
                       title="Project Presentation"
