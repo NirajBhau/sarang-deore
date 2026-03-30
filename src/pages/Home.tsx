@@ -7,7 +7,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Link, useLocation } from 'react-router-dom';
 import { cn } from '../lib/utils';
 import { useState, FormEvent, ChangeEvent, useEffect } from 'react';
-import { getProjects, getActiveResume, urlFor } from '../lib/sanity';
+import { getProjects, urlFor } from '../lib/sanity';
 
 import sarangImg from '../assets/sarang.jfif';
 import structuralProfileImg from '../assets/structural_profile.png';
@@ -16,25 +16,14 @@ import { PROJECTS_LIST } from '../lib/data';
 export default function Home() {
   const location = useLocation();
   const [projectsData, setProjectsData] = useState<any[]>([]);
-  const [resumeUrl, setResumeUrl] = useState<string>('/Sarang_Deore_Resume.pdf');
 
   useEffect(() => {
     async function fetchData() {
       try {
-        const [proj, res] = await Promise.all([
-          getProjects(),
-          getActiveResume()
+        const [proj] = await Promise.all([
+          getProjects()
         ]);
         setProjectsData(proj && proj.length > 0 ? proj : PROJECTS_LIST);
-        
-        if (res?.url) {
-          console.log("Found Sanity Resume URL:", res.url);
-          // Append ?dl to force download from Sanity CDN
-          const downloadUrl = res.url.includes('?') ? `${res.url}&dl=` : `${res.url}?dl=Sarang_Deore_Resume.pdf`;
-          setResumeUrl(downloadUrl);
-        } else {
-          console.warn("No resume URL found in Sanity, using local fallback.");
-        }
       } catch (error) {
         console.error("Failed to fetch Sanity data, using local fallback:", error);
         setProjectsData(PROJECTS_LIST);
@@ -156,7 +145,7 @@ export default function Home() {
                 <ArrowRight className="w-4 h-4" />
               </a>
               <a 
-                href={resumeUrl}
+                href="/sarang_resume.pdf"
                 download
                 className="bg-[#E5E5E5] text-slate-700 px-10 py-4 rounded-sm font-bold hover:bg-slate-200 transition-all text-sm uppercase tracking-wider flex items-center gap-3"
               >

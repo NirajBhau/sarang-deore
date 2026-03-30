@@ -1,29 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { Download, Printer, Mail, Phone, Linkedin, MapPin, Award, ChevronRight, ExternalLink, Target, ShieldCheck } from 'lucide-react';
-import { getActiveResume, getProjects } from '../lib/sanity';
+import { getProjects } from '../lib/sanity';
 import { PROJECTS_LIST } from '../lib/data';
 
 export default function Resume() {
-  const [resumeUrl, setResumeUrl] = useState<string>('/Sarang_Deore_Resume.pdf');
   const [projectsData, setProjectsData] = useState<any[]>([]);
 
   useEffect(() => {
     async function fetchData() {
       try {
-        const [resumeData, projects] = await Promise.all([
-          getActiveResume(),
+        const [projects] = await Promise.all([
           getProjects()
         ]);
-        
-        if (resumeData?.url) {
-          console.log("Found Sanity Resume URL (Resume Page):", resumeData.url);
-          // Append ?dl to force download from Sanity CDN
-          const downloadUrl = resumeData.url.includes('?') ? `${resumeData.url}&dl=` : `${resumeData.url}?dl=Sarang_Deore_Resume.pdf`;
-          setResumeUrl(downloadUrl);
-        } else {
-          console.warn("No resume URL found in Sanity (Resume Page), using local fallback.");
-        }
         setProjectsData(projects && projects.length > 0 ? projects : PROJECTS_LIST);
       } catch (error) {
         console.error("Error fetching data from Sanity:", error);
@@ -54,7 +43,7 @@ export default function Resume() {
               Print
             </button>
             <a 
-              href={resumeUrl}
+              href="/sarang_resume.pdf"
               download
               target="_blank" 
               rel="noopener noreferrer"

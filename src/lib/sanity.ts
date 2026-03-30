@@ -16,12 +16,22 @@ export function urlFor(source: any) {
 
 export async function getActiveResume() {
   // Query looks for any document of type "resume", prioritizing the most recently updated.
+  // We fetch the entire asset reference to ensure we can debug if url is missing.
   const query = `*[_type == "resume"] | order(_updatedAt desc)[0]{
     "url": resumeFile.asset->url,
+    resumeFile,
     lastUpdated
   }`;
-  // Always fetch with useCdn: false to ensure we get the latest uploaded file immediately
-  return await client.fetch(query, {}, { useCdn: false });
+  
+  try {
+    // Always fetch with useCdn: false for high-importance files like resume
+    const data = await client.fetch(query, {}, { useCdn: false });
+    console.log("Sanity getActiveResume Response:", data);
+    return data;
+  } catch (error) {
+    console.error("Sanity getActiveResume Error:", error);
+    return null;
+  }
 }
 
 // Helper to fetch all projects
