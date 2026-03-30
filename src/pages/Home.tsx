@@ -145,7 +145,7 @@ export default function Home() {
                 <ArrowRight className="w-4 h-4" />
               </a>
               <a 
-                href="/sarang_resume.pdf"
+                href="/Sarang_Deore.pdf"
                 download
                 className="bg-[#E5E5E5] text-slate-700 px-10 py-4 rounded-sm font-bold hover:bg-slate-200 transition-all text-sm uppercase tracking-wider flex items-center gap-3"
               >

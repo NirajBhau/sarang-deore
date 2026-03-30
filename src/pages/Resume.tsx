@@ -43,7 +43,7 @@ export default function Resume() {
               Print
             </button>
             <a 
-              href="/sarang_resume.pdf"
+              href="/Sarang_Deore.pdf"
               download
               target="_blank" 
               rel="noopener noreferrer"
