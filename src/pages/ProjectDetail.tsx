@@ -2,32 +2,21 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
   ArrowLeft, 
-  ExternalLink, 
-  Clock, 
-  Target, 
-  User, 
-  LucideIcon, 
-  HardHat, 
-  Droplets, 
-  Gauge, 
-  Verified, 
-  FileText, 
-  Presentation, 
-  FileSpreadsheet, 
-  FileJson,
-  Code,
-  Radar,
-  Beaker,
-  Database,
+  Download,
   Loader2,
   Maximize2,
-  Download,
-  Calendar,
-  ChevronRight,
-  Ruler,
-  BarChart3,
   Minimize2,
-  Play
+  Play,
+  Ruler,
+  FileText,
+  Code,
+  Verified,
+  ChevronRight,
+  ExternalLink,
+  Clock,
+  Target,
+  User,
+  Calendar
 } from 'lucide-react';
 import { useEffect, useState, useRef } from 'react';
 import { cn } from '../lib/utils';
@@ -59,7 +48,7 @@ export default function ProjectDetail() {
           ...data,
           ...(localData || {}),
           id: id,
-          resources: (data?.resources || []).concat(localData?.manualResources || []).filter((r: any) => !r.type?.toLowerCase().includes('ppt'))
+          resources: (data?.resources || []).concat(localData?.manualResources || []).filter((r: any) => r && r.type?.toLowerCase().includes('ppt') === false)
         });
       } catch (error) {
         console.error("Error fetching project:", error);
@@ -140,10 +129,10 @@ export default function ProjectDetail() {
              </div>
              <div className="grid md:grid-cols-2 gap-12">
                 <p className="text-slate-600 leading-relaxed font-medium">
-                   {project.fullDesc?.split('\n')[0]}
+                   {project?.fullDesc?.split('\n')[0] || "Overview details for this phase of the project are being finalized."}
                 </p>
                 <p className="text-slate-600 leading-relaxed font-medium">
-                   {project.fullDesc?.split('\n').slice(1).join('\n')}
+                   {project?.fullDesc?.split('\n').slice(1).join('\n') || ""}
                 </p>
              </div>
           </div>
