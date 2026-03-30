@@ -44,7 +44,8 @@ By experimenting with silane and siloxane-based admixtures, we analyzed how the 
       { name: "Project Summary", type: "docx", url: "/projects/1-hydrophobic-concrete/Hydrophobic_Concrete_To display text.docx" }
     ],
     tags: ["Material Science", "Concrete Core", "Silane Comp"],
-    thumbnailUrl: "/projects/1-hydrophobic-concrete/ChatGPT Image Mar 29, 2026, 01_27_23 PM.png"
+    thumbnailUrl: "/projects/1-hydrophobic-concrete/ChatGPT Image Mar 29, 2026, 01_27_23 PM.png",
+    pptUrl: "/projects/1-hydrophobic-concrete/Hydrophobic_Concrete_PPT.pptx"
   },
   "structural-health-monitoring-of-rc-columns": {
     title: "Structural Health Monitoring (SHM) using IoT Sensors",
@@ -111,7 +112,8 @@ Through hydraulic modeling, we created a scalable solution for water-scarce urba
       { name: "Calculations Data", type: "docx", url: "/projects/3-smart-rainwater-harvesting/RWH_To display text.docx" }
     ],
     tags: ["Sustainable", "Water Grid", "Filtration"],
-    thumbnailUrl: rwhResults
+    thumbnailUrl: rwhResults,
+    pptUrl: "/projects/3-smart-rainwater-harvesting/RWH_PPT.pptx"
   },
   "visual-structural-inspection-(g+6-building)": {
     title: "Visual Structural Inspection & Condition Mapping",
@@ -178,7 +180,8 @@ By redistributing high-density zones near transit hubs, we simulated a significa
       { name: "City Design Report", type: "docx", url: "/projects/5-smart-city-zoning/Smart_City_Zoning_Project_Report.docx" }
     ],
     tags: ["Zoning", "GIS Mapping", "Smart City"],
-    thumbnailUrl: cityResults
+    thumbnailUrl: cityResults,
+    pptUrl: "/projects/5-smart-city-zoning/Smart_City_Zoning_Project_PPT.pptx"
   }
 };
 

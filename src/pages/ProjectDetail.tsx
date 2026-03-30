@@ -64,6 +64,7 @@ export default function ProjectDetail() {
           statusTag: data?.statusTag || localData?.statusTag,
           grade: data?.grade || localData?.grade,
           researchSignificance: data?.researchSignificance || localData?.researchSignificance,
+          pptUrl: data?.pptUrl || localData?.pptUrl,
           // Robust resource merging
           resources: [
             ...(data?.resources || []),
