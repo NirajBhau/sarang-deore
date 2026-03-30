@@ -191,8 +191,8 @@ export default function Resume() {
                   title={project.title}
                   role={project.role || project.category}
                   desc={project.shortDesc}
-                  tags={project.tags}
-                  impact={project.impact}
+                  tags={project.tags || []}
+                  impact={project.impact || "N/A"}
                 />
               ))}
             </div>
@@ -293,7 +293,7 @@ function SkillCategory({ title, skills }: { title: string, skills: string[] }) {
   );
 }
 
-function ProjectItem({ title, role, desc, tags, impact }: { title: string, role: string, desc: string, tags: string[], impact: string, key?: string }) {
+function ProjectItem({ title, role, desc, tags = [], impact }: { title: string, role: string, desc: string, tags?: string[], impact: string, key?: string }) {
   return (
     <div className="group">
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
@@ -310,7 +310,7 @@ function ProjectItem({ title, role, desc, tags, impact }: { title: string, role:
         {desc}
       </p>
       <div className="flex flex-wrap gap-6">
-        {tags.map(tag => (
+        {(tags || []).map(tag => (
           <div key={tag} className="flex items-center gap-2">
             <div className="w-1.5 h-1.5 bg-blue-400 rounded-full"></div>
             <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">{tag}</span>

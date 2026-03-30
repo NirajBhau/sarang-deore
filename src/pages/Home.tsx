@@ -478,12 +478,12 @@ export default function Home() {
                   "md:col-span-6 aspect-video"
                 )}
               >
-                {project.thumbnailUrl ? (
+                {project.thumbnailUrl || project.thumbnail ? (
                   <img 
                     src={project.thumbnail ? urlFor(project.thumbnail).width(1200).height(800).fit('crop').auto('format').url() : project.thumbnailUrl} 
                     className="w-full h-full object-cover opacity-60 transition-transform duration-700 group-hover:scale-105"
                     referrerPolicy="no-referrer"
-                    alt={project.title}
+                    alt={project.title || "Project Thumbnail"}
                   />
                 ) : (
                   <div className="w-full h-full flex items-center justify-center">
@@ -493,7 +493,7 @@ export default function Home() {
                 )}
                 <div className="absolute inset-0 p-8 md:p-10 flex flex-col justify-end bg-gradient-to-t from-black/80 via-black/20 to-transparent">
                   <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tags.slice(0, 2).map((tag: string) => (
+                    {(project.tags || []).slice(0, 2).map((tag: string) => (
                       <span key={tag} className="text-[10px] font-bold uppercase tracking-widest text-white/60 border border-white/20 px-3 py-1 rounded-full whitespace-nowrap">
                         {tag}
                       </span>
@@ -509,9 +509,9 @@ export default function Home() {
                     {project.shortDesc}
                   </p>
                   
-                  {project.keyHighlights && (
+                  {(project.keyHighlights || []).length > 0 && (
                     <div className="flex flex-wrap gap-3 mb-6">
-                      {project.keyHighlights.slice(0, 3).map((highlight: string) => (
+                      {(project.keyHighlights || []).slice(0, 3).map((highlight: string) => (
                         <div key={highlight} className="flex flex-col gap-1.5">
                           <div className="h-[1px] w-4 bg-blue-400/50"></div>
                           <span className="text-[9px] font-black uppercase tracking-widest text-white/50">{highlight}</span>
