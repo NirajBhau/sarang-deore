@@ -9,7 +9,7 @@ import { cn } from '../lib/utils';
 import { useState, FormEvent, ChangeEvent, useEffect } from 'react';
 import { getProjects, urlFor } from '../lib/sanity';
 
-import sarangImg from '../assets/sarang.jfif';
+import sarangImg from '../assets/sarang.jfif?v=1';
 import structuralProfileImg from '../assets/structural_profile.png';
 import { PROJECTS_LIST } from '../lib/data';
 
