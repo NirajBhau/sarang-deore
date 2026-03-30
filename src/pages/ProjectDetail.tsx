@@ -36,7 +36,13 @@ export default function ProjectDetail() {
     async function fetchProject() {
       if (!id) return;
       try {
-        const data = await getProjectBySlug(id);
+        let data = null;
+        try {
+          data = await getProjectBySlug(id);
+        } catch (err) {
+          console.error("Sanity fetch failed, falling back to local data:", err);
+        }
+        
         const localData = PROJECTS_DATA[id];
 
         if (!data && !localData) {
@@ -44,14 +50,33 @@ export default function ProjectDetail() {
           return;
         }
 
-        setProject({
-          ...data,
+        const mergedProject = {
+          ...(data || {}),
           ...(localData || {}),
           id: id,
-          resources: (data?.resources || []).concat(localData?.manualResources || []).filter((r: any) => r && r.type?.toLowerCase().includes('ppt') === false)
-        });
+          // If we have both, we need to carefully merge Sanity fields onto local data
+          // but ensure local fields (like fullDesc, methodology) take precedence if Sanity is empty
+          ...data, 
+          // Ensure local descriptive fields are always present if Sanity lacks them
+          fullDesc: data?.fullDesc || localData?.fullDesc,
+          category: data?.category || localData?.category,
+          title: data?.title || localData?.title,
+          statusTag: data?.statusTag || localData?.statusTag,
+          grade: data?.grade || localData?.grade,
+          researchSignificance: data?.researchSignificance || localData?.researchSignificance,
+          // Robust resource merging
+          resources: [
+            ...(data?.resources || []),
+            ...(localData?.manualResources || [])
+          ].filter(r => r && r.url && r.type?.toLowerCase().includes('ppt') === false),
+          technicalTools: data?.technicalTools || localData?.technicalTools,
+          methodology: data?.methodology || localData?.methodology,
+          galleryImages: data?.galleryImages || localData?.galleryImages || []
+        };
+
+        setProject(mergedProject);
       } catch (error) {
-        console.error("Error fetching project:", error);
+        console.error("Final catch in fetchProject:", error);
       } finally {
         setIsLoading(false);
       }
