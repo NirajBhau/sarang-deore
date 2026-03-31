@@ -130,6 +130,12 @@ export default defineType({
       options: { hotspot: true },
     }),
     defineField({
+      name: 'galleryImages',
+      title: 'Project Gallery Images',
+      type: 'array',
+      of: [{ type: 'image', options: { hotspot: true } }]
+    }),
+    defineField({
       name: 'pptFile',
       title: 'Main Presentation (PPTX)',
       type: 'file',

@@ -473,11 +473,11 @@ export default function Home() {
                 key={project._id || project.id}
                 to={`/project/${project.slug?.current || project.id}`}
                 className={cn(
-                  "group relative overflow-hidden rounded-sm bg-slate-900 w-full",
-                  idx === 0 ? "md:col-span-8 aspect-[16/10]" :
-                    idx === 1 ? "md:col-span-4 aspect-[10/16] md:aspect-auto" :
-                      idx === 4 ? "md:col-span-12 aspect-[21/9]" :
-                        "md:col-span-6 aspect-video"
+                  "group relative overflow-hidden rounded-sm bg-slate-900 w-full aspect-[4/5]",
+                  idx === 0 ? "md:col-span-8 md:aspect-[16/10]" :
+                    idx === 1 ? "md:col-span-4 md:aspect-[10/16]" :
+                      idx === 4 ? "md:col-span-12 md:aspect-[21/9]" :
+                        "md:col-span-6 md:aspect-video"
                 )}
               >
                 {project.thumbnailUrl || project.thumbnail ? (
