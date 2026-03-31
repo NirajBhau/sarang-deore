@@ -289,7 +289,7 @@ export default function Home() {
               {[
                 {
                   title: "Certifications & Training",
-                  desc: "Completed Project Management in Construction specialization. Currently exploring GIS, Remote Sensing, and Drone technology for engineering surveys.",
+                  desc: "Completed Project Management in Construction Specialization by L&T EduTech. Currently exploring GIS, Remote Sensing, and Drone technology for engineering surveys.",
                   icon: <Calendar className="w-5 h-5" />
                 },
                 {
