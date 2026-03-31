@@ -255,7 +255,7 @@ export default function Home() {
                   <h3 className="font-headline text-lg font-bold text-slate-900 tracking-widest uppercase">Interests</h3>
                 </div>
 
-                <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 auto-rows-fr gap-3 lg:gap-4 w-full">
+                <div className="flex-1 grid grid-cols-2 auto-rows-fr gap-2 sm:gap-3 lg:gap-4 w-full">
                   {[
                     { name: "Smart Infrastructure", icon: <Cpu className="w-5 h-5" />, color: "text-blue-600", bg: "bg-blue-100/60" },
                     { name: "Structural Health Monitoring", icon: <Activity className="w-5 h-5" />, color: "text-red-500", bg: "bg-red-100/60" },
@@ -264,11 +264,11 @@ export default function Home() {
                     { name: "Data-Driven Engineering", icon: <BarChart3 className="w-5 h-5" />, color: "text-amber-500", bg: "bg-amber-100/60" },
                     { name: "Drone & Remote Sensing Technology", icon: <Radar className="w-5 h-5" />, color: "text-purple-600", bg: "bg-purple-100/60" }
                   ].map((interest) => (
-                    <div key={interest.name} className="flex flex-col items-start gap-4 p-4 lg:p-5 rounded-3xl bg-slate-50 border border-slate-100 hover:bg-white hover:border-slate-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-default group/item h-full">
-                      <div className={cn("w-12 h-12 shrink-0 rounded-2xl flex items-center justify-center shadow-sm group-hover/item:scale-110 group-hover/item:rotate-3 transition-all duration-300", interest.bg, interest.color)}>
+                    <div key={interest.name} className="flex flex-col items-start gap-2 sm:gap-4 p-3 sm:p-4 lg:p-5 rounded-2xl sm:rounded-3xl bg-slate-50 border border-slate-100 hover:bg-white hover:border-slate-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-default group/item h-full">
+                      <div className={cn("w-10 h-10 sm:w-12 sm:h-12 shrink-0 rounded-xl sm:rounded-2xl flex items-center justify-center shadow-sm group-hover/item:scale-110 group-hover/item:rotate-3 transition-all duration-300", interest.bg, interest.color)}>
                         {interest.icon}
                       </div>
-                      <span className="text-xs sm:text-sm font-bold text-slate-800 tracking-tight leading-tight group-hover/item:text-blue-600 transition-colors">{interest.name}</span>
+                      <span className="text-[10px] sm:text-xs lg:text-sm font-bold text-slate-800 tracking-tight leading-snug group-hover/item:text-blue-600 transition-colors">{interest.name}</span>
                     </div>
                   ))}
                 </div>
