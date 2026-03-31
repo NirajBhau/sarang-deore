@@ -121,12 +121,12 @@ export default function Home() {
       {/* Hero Section */}
       <section id="hero" className="relative min-h-[95vh] flex items-center overflow-hidden py-20 lg:py-0">
         <div className="absolute inset-0 blueprint-grid z-0 opacity-60"></div>
-        <div className="w-full px-6 md:px-12 lg:px-24 grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-12 items-center relative z-10">
+        <div className="w-full px-6 md:px-12 lg:px-24 grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-20 items-center relative z-10">
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left"
+            className="lg:col-span-8 flex flex-col items-center lg:items-start text-center lg:text-left"
           >
             <div className="inline-flex items-center gap-2 mb-8 bg-[#F2E8CF] px-4 py-1.5 rounded-full border border-[#DBC8A0] self-center lg:self-start">
               <span className="w-2 h-2 bg-[#8B7355] rounded-full"></span>
@@ -161,7 +161,7 @@ export default function Home() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="lg:col-span-5 relative flex justify-center items-center mb-12 lg:mb-0"
+            className="lg:col-span-4 relative flex justify-center lg:justify-end items-center mb-12 lg:mb-0 lg:ml-auto w-full"
           >
             {/* Animated Rings Background */}
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
@@ -171,7 +171,7 @@ export default function Home() {
             </div>
 
             {/* Profile Photo Container */}
-            <div className="relative w-full max-w-[320px] sm:max-w-[380px] lg:max-w-[450px] aspect-square p-2 sm:p-4">
+            <div className="relative w-full max-w-[320px] sm:max-w-[380px] lg:max-w-[360px] xl:max-w-[420px] aspect-square p-2 sm:p-4">
               <div className="absolute inset-0 rounded-full border-[6px] sm:border-[10px] border-[#0047AB] shadow-[0_0_40px_rgba(0,71,171,0.2)]"></div>
               <div className="absolute inset-2 rounded-full border-[1px] border-blue-200/50"></div>
               <div className="w-full h-full rounded-full overflow-hidden bg-slate-100 relative shadow-inner">
