@@ -473,17 +473,17 @@ export default function Home() {
                 key={project._id || project.id}
                 to={`/project/${project.slug?.current || project.id}`}
                 className={cn(
-                  "group relative overflow-hidden rounded-sm bg-slate-900 w-full aspect-[4/5]",
-                  idx === 0 ? "md:col-span-8 md:aspect-[16/10]" :
-                    idx === 1 ? "md:col-span-4 md:aspect-[10/16]" :
-                      idx === 4 ? "md:col-span-12 md:aspect-[21/9]" :
-                        "md:col-span-6 md:aspect-video"
+                  "group relative overflow-hidden rounded-sm bg-slate-900 w-full min-h-[400px]", // mobile base height
+                  idx === 0 ? "md:col-span-8 md:aspect-[16/10] md:min-h-0" :
+                    idx === 1 ? "md:col-span-4 md:h-full md:min-h-0" :
+                      idx === 4 ? "md:col-span-12 md:aspect-[21/9] md:min-h-0" :
+                        "md:col-span-6 md:aspect-video md:min-h-0"
                 )}
               >
                 {project.thumbnailUrl || project.thumbnail ? (
                   <img
                     src={project.thumbnail ? urlFor(project.thumbnail).width(1200).height(800).fit('crop').auto('format').url() : project.thumbnailUrl}
-                    className="w-full h-full object-cover opacity-60 transition-transform duration-700 group-hover:scale-105"
+                    className="absolute inset-0 w-full h-full object-cover opacity-60 transition-transform duration-700 group-hover:scale-105"
                     referrerPolicy="no-referrer"
                     alt={project.title || "Project Thumbnail"}
                   />
