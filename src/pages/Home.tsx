@@ -119,27 +119,30 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section id="hero" className="relative min-h-[90vh] flex items-center overflow-hidden pt-12">
+      <section id="hero" className="relative min-h-[95vh] flex items-center overflow-hidden py-20 lg:py-0">
         <div className="absolute inset-0 blueprint-grid z-0 opacity-60"></div>
-        <div className="w-full px-4 md:px-24 grid md:grid-cols-12 gap-12 items-center relative z-10">
+        <div className="w-full px-6 md:px-12 lg:px-24 grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-12 items-center relative z-10">
           <motion.div 
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="md:col-span-8 lg:col-span-7 pr-0 lg:pr-12"
+            className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left"
           >
-            <div className="inline-flex items-center gap-2 mb-8 bg-[#F2E8CF] px-4 py-1.5 rounded-full border border-[#DBC8A0]">
+            <div className="inline-flex items-center gap-2 mb-8 bg-[#F2E8CF] px-4 py-1.5 rounded-full border border-[#DBC8A0] self-center lg:self-start">
               <span className="w-2 h-2 bg-[#8B7355] rounded-full"></span>
               <span className="font-sans text-[10px] uppercase tracking-widest font-bold text-[#8B7355]">SEEKING INTERNSHIP OPPORTUNITIES</span>
             </div>
-            <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-8xl font-bold tracking-tighter text-slate-900 mb-8 leading-[1.1]">
+            <h1 
+              className="font-serif font-bold tracking-tighter text-slate-900 mb-8 leading-[1.1]"
+              style={{ fontSize: 'clamp(2.5rem, 7vw, 6.5rem)' }}
+            >
               <span className="text-[#0047AB]">Civil</span><br />
               <span className="text-[#0047AB]">Engineering</span> Undergraduate.
             </h1>
             <p className="font-sans text-lg md:text-xl text-slate-600 max-w-xl mb-12 leading-relaxed">
               Interests in Construction Management and Structural Engineering. Passionate about integrating data-driven methodologies and sustainable practices into modern infrastructure.
             </p>
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap justify-center lg:justify-start gap-4">
               <a href="#projects" className="bg-[#0047AB] text-white px-10 py-4 rounded-sm font-bold flex items-center gap-3 hover:bg-blue-800 transition-all text-sm uppercase tracking-wider">
                 Explore Projects
                 <ArrowRight className="w-4 h-4" />
@@ -153,11 +156,12 @@ export default function Home() {
               </a>
             </div>
           </motion.div>
+          
           <motion.div 
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="md:col-span-4 lg:col-span-5 relative flex justify-center items-center"
+            className="lg:col-span-5 relative flex justify-center items-center mb-12 lg:mb-0"
           >
             {/* Animated Rings Background */}
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
@@ -167,8 +171,8 @@ export default function Home() {
             </div>
 
             {/* Profile Photo Container */}
-            <div className="relative w-full max-w-[380px] aspect-square p-4">
-              <div className="absolute inset-0 rounded-full border-[10px] border-[#0047AB] shadow-[0_0_40px_rgba(0,71,171,0.2)]"></div>
+            <div className="relative w-full max-w-[320px] sm:max-w-[380px] lg:max-w-[450px] aspect-square p-2 sm:p-4">
+              <div className="absolute inset-0 rounded-full border-[6px] sm:border-[10px] border-[#0047AB] shadow-[0_0_40px_rgba(0,71,171,0.2)]"></div>
               <div className="absolute inset-2 rounded-full border-[1px] border-blue-200/50"></div>
               <div className="w-full h-full rounded-full overflow-hidden bg-slate-100 relative shadow-inner">
                 <img 
