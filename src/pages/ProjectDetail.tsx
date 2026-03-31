@@ -308,69 +308,7 @@ export default function ProjectDetail() {
           )}
         </section>
 
-        {/* Section 3: Methodology Cards */}
-        <section className="max-w-full px-6 md:px-16 space-y-12">
-            <div className="flex items-center gap-4">
-                <div className="w-8 h-[2px] bg-blue-600"></div>
-                <h2 className="text-2xl font-headline font-bold text-slate-900 tracking-tight">Methodology & Lab Results</h2>
-            </div>
-            <div className="grid md:grid-cols-3 gap-8">
-                {project.methodology?.map((item: any, idx: number) => {
-                    const Icon = iconMap[item.icon] || Ruler;
-                    return (
-                        <div key={idx} className="relative overflow-hidden p-8 bg-slate-50 rounded-sm border border-slate-100 group hover:border-blue-400 transition-all shadow-sm">
-                            <div className="absolute inset-0 blueprint-grid opacity-60 pointer-events-none z-0 transition-opacity duration-700 group-hover:opacity-100"></div>
-                            <div className="relative z-10">
-                                <div className="w-10 h-10 rounded-lg bg-white flex items-center justify-center border border-slate-100 text-blue-600 mb-6 group-hover:bg-blue-600 group-hover:text-white transition-all shadow-sm">
-                                    <Icon className="w-5 h-5" />
-                                </div>
-                                <h4 className="font-bold text-slate-900 mb-2 uppercase tracking-tight">{item.title}</h4>
-                                <p className="text-xs text-slate-500 font-medium leading-relaxed mb-6 h-12 overflow-hidden">{item.description}</p>
-                                <div className="flex items-baseline gap-2">
-                                    <span className="text-4xl font-black text-slate-900 tracking-tighter">{item.value}</span>
-                                    <span className="text-[10px] font-black uppercase tracking-widest text-slate-400">{item.unit}</span>
-                                </div>
-                            </div>
-                        </div>
-                    );
-                })}
-            </div>
-        </section>
 
-        {/* Section 4: Image Gallery */}
-        <section className="max-w-full px-6 md:px-16 space-y-12 pb-12">
-             <div className="flex items-center gap-4">
-                <div className="w-8 h-[2px] bg-blue-600"></div>
-                <h2 className="text-2xl font-headline font-bold text-slate-900 tracking-tight">Project Visuals & Lab Findings</h2>
-             </div>
-             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                {(project.galleryImages || [
-                    project.thumbnail || project.thumbnailUrl,
-                    project.labResultsImage || project.labResultsUrl,
-                    "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&q=80&w=1000",
-                    "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=1000",
-                    "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1000"
-                ]).filter(Boolean).map((img: any, idx: number) => {
-                    const imgSrc = typeof img === 'string' 
-                        ? img 
-                        : (img?.asset ? urlFor(img).width(800).height(800).fit('crop').auto('format').url() : '');
-                    
-                    if (!imgSrc) return null;
-
-                    return (
-                    <div key={idx} className="aspect-square rounded-sm overflow-hidden border border-slate-200 group relative shadow-md">
-                        <img 
-                            src={imgSrc} 
-                            alt={`Lab Result ${idx}`} 
-                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
-                        />
-                        <div className="absolute inset-0 bg-blue-900/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                            <Maximize2 className="w-8 h-8 text-white scale-75 group-hover:scale-100 transition-transform" />
-                        </div>
-                    </div>
-                )})}
-             </div>
-        </section>
 
       </main>
 

@@ -1,8 +1,3 @@
-import structuralIno from '../assets/structural_profile.png';
-import shmResults from '../assets/shm_lab_results.png';
-import rwhResults from '../assets/rwh_lab_results.png';
-import vsiResults from '../assets/vsi_lab_results.png';
-import cityResults from '../assets/city_zoning_lab_results.png';
 import { HardHat, Droplets, Gauge, Verified, FileText, Presentation, FileSpreadsheet, FileJson, Code, Radar, Beaker, Database, Calendar, Ruler, BarChart3, LucideIcon } from 'lucide-react';
 
 export const iconMap: Record<string, LucideIcon> = {
@@ -33,19 +28,7 @@ By experimenting with silane and siloxane-based admixtures, we analyzed how the 
       { name: "LAB EQUIPMENT", description: "UTM (Universal Testing Machine) and Ve-Bee apparatus for material property validation.", icon: "HardHat" },
       { name: "AUTOCAD", description: "Structural detailing of concrete blocks and reinforced placement drawings.", icon: "Code" }
     ],
-    galleryImages: [
-        "/projects/1-hydrophobic-concrete/ChatGPT Image Mar 29, 2026, 01_27_23 PM.png",
-        structuralIno,
-        "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&q=80&w=1000",
-        "https://images.unsplash.com/photo-1517646281634-26a389e55d80?auto=format&fit=crop&q=80&w=1000"
-    ],
-    manualResources: [
-      { name: "Research Report", type: "pdf", url: "/projects/1-hydrophobic-concrete/Hydrophobic_Concrete_Report.pdf" },
-      { name: "Project Summary", type: "docx", url: "/projects/1-hydrophobic-concrete/Hydrophobic_Concrete_To display text.docx" }
-    ],
-    tags: ["Material Science", "Concrete Core", "Silane Comp"],
-    thumbnailUrl: "/projects/1-hydrophobic-concrete/ChatGPT Image Mar 29, 2026, 01_27_23 PM.png",
-    pptUrl: "/projects/1-hydrophobic-concrete/Hydrophobic_Concrete_PPT.pptx"
+    tags: ["Material Science", "Concrete Core", "Silane Comp"]
   },
   "structural-health-monitoring-of-rc-columns": {
     title: "Structural Health Monitoring (SHM) using IoT Sensors",
@@ -69,16 +52,7 @@ By processing vibration data through FFT (Fast Fourier Transform), we successful
       { name: "ARDUINO IDE", description: "Microcontroller programming for real-time sensor data transmission.", icon: "Database" },
       { name: "ETABS", description: "Finite Element Modeling for theoretical comparison with sensor data.", icon: "HardHat" }
     ],
-    galleryImages: [
-        shmResults,
-        "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&q=80&w=1000",
-        "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=1000"
-    ],
-    manualResources: [
-      { name: "Axial Load Analysis", type: "docx", url: "/projects/2-structural-health-monitoring/SHM of a Reinforced Concrete Column Under Axial Load.docx" }
-    ],
-    tags: ["IoT", "Sensor Array", "Monitoring"],
-    thumbnailUrl: shmResults
+    tags: ["IoT", "Sensor Array", "Monitoring"]
   },
   "smart-rainwater-harvesting-system": {
     title: "Smart Rainwater Harvesting & Greywater Reuse",
@@ -102,18 +76,7 @@ Through hydraulic modeling, we created a scalable solution for water-scarce urba
       { name: "MS PROJECT", description: "Planning and phase-wise implementation scheduling.", icon: "Calendar" },
       { name: "GIS", description: "Catchment area analysis and runoff estimation for urban zones.", icon: "Code" }
     ],
-    galleryImages: [
-        rwhResults,
-        "https://images.unsplash.com/photo-1544333346-633ca59372bd?auto=format&fit=crop&q=80&w=1000",
-        "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=1000"
-    ],
-    manualResources: [
-      { name: "Harvesting Report", type: "pdf", url: "/projects/3-smart-rainwater-harvesting/RWH_Report.pdf" },
-      { name: "Calculations Data", type: "docx", url: "/projects/3-smart-rainwater-harvesting/RWH_To display text.docx" }
-    ],
-    tags: ["Sustainable", "Water Grid", "Filtration"],
-    thumbnailUrl: rwhResults,
-    pptUrl: "/projects/3-smart-rainwater-harvesting/RWH_PPT.pptx"
+    tags: ["Sustainable", "Water Grid", "Filtration"]
   },
   "visual-structural-inspection-(g+6-building)": {
     title: "Visual Structural Inspection & Condition Mapping",
@@ -137,16 +100,7 @@ The data was used to create a digital twin with priority zones for repair. This 
       { name: "AUTOCAD RECAP", description: "Processing site photos into point clouds for crack mapping.", icon: "Presentation" },
       { name: "BLUEBEAM", description: "Detailed markup and quantification of structural repairs.", icon: "FileText" }
     ],
-    galleryImages: [
-        vsiResults,
-        "https://images.unsplash.com/photo-1503387762-592dea58ef23?auto=format&fit=crop&q=80&w=1000",
-        "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1000"
-    ],
-    manualResources: [
-      { name: "Inspection Thesis", type: "docx", url: "/projects/4-visual-structural-inspection/SHM(P)_Report.docx" }
-    ],
-    tags: ["NDT Testing", "Inspection", "Assessment"],
-    thumbnailUrl: vsiResults
+    tags: ["NDT Testing", "Inspection", "Assessment"]
   },
   "pollution-aware-smart-city-zoning": {
     title: "Smart City Zoning & Transportation Planning",
@@ -170,18 +124,7 @@ By redistributing high-density zones near transit hubs, we simulated a significa
       { name: "PYTHON (PANDAS)", description: "Used for cleaning and analyzing demographic and mobility datasets.", icon: "Database" },
       { name: "SKETCHUP", description: "3D visualization of proposed mixed-use development blocks.", icon: "Presentation" }
     ],
-    galleryImages: [
-        cityResults,
-        "https://images.unsplash.com/photo-1570126688035-1e6adbd6142c?auto=format&fit=crop&q=80&w=1000",
-        "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&q=80&w=1000"
-    ],
-    manualResources: [
-      { name: "Zoning Framework", type: "docx", url: "/projects/5-smart-city-zoning/Smart City Zoning to display text.docx" },
-      { name: "City Design Report", type: "docx", url: "/projects/5-smart-city-zoning/Smart_City_Zoning_Project_Report.docx" }
-    ],
-    tags: ["Zoning", "GIS Mapping", "Smart City"],
-    thumbnailUrl: cityResults,
-    pptUrl: "/projects/5-smart-city-zoning/Smart_City_Zoning_Project_PPT.pptx"
+    tags: ["Zoning", "GIS Mapping", "Smart City"]
   }
 };
 

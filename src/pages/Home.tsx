@@ -1,7 +1,7 @@
-import { 
-  ArrowRight, School, HardHat, Calendar, Flag, BarChart3, Ruler, Code, 
-  Radar, Verified, Mail, MapPin, Loader2, Linkedin, 
-  Presentation, GraduationCap, Target, Settings, Building2, Map, Plane 
+import {
+  ArrowRight, School, HardHat, Calendar, Flag, BarChart3, Ruler, Code,
+  Radar, Verified, Mail, MapPin, Loader2, Linkedin,
+  Presentation, GraduationCap, Target, Settings, Building2, Map, Plane
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Link, useLocation } from 'react-router-dom';
@@ -10,7 +10,7 @@ import { useState, FormEvent, ChangeEvent, useEffect } from 'react';
 import { getProjects, urlFor } from '../lib/sanity';
 
 import sarangImg from '../assets/sarang.jfif?v=1';
-import structuralProfileImg from '../assets/structural_profile.png';
+
 import { PROJECTS_LIST } from '../lib/data';
 
 export default function Home() {
@@ -74,7 +74,7 @@ export default function Home() {
 
     setErrors({});
     setIsSubmitting(true);
-    
+
     try {
       const response = await fetch("https://formspree.io/f/xwvwlabl", {
         method: "POST",
@@ -122,7 +122,7 @@ export default function Home() {
       <section id="hero" className="relative min-h-[95vh] flex items-center overflow-hidden py-20 lg:py-0">
         <div className="absolute inset-0 blueprint-grid z-0 opacity-60"></div>
         <div className="w-full px-6 md:px-12 lg:px-24 grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-20 items-center relative z-10">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -132,7 +132,7 @@ export default function Home() {
               <span className="w-2 h-2 bg-[#8B7355] rounded-full"></span>
               <span className="font-sans text-[10px] uppercase tracking-widest font-bold text-[#8B7355]">SEEKING INTERNSHIP OPPORTUNITIES</span>
             </div>
-            <h1 
+            <h1
               className="font-serif font-bold tracking-tighter text-slate-900 mb-8 leading-[1.1]"
               style={{ fontSize: 'clamp(2.5rem, 7vw, 6.5rem)' }}
             >
@@ -147,7 +147,7 @@ export default function Home() {
                 Explore Projects
                 <ArrowRight className="w-4 h-4" />
               </a>
-              <a 
+              <a
                 href="/Sarang_Deore.pdf"
                 download
                 className="bg-[#E5E5E5] text-slate-700 px-10 py-4 rounded-sm font-bold hover:bg-slate-200 transition-all text-sm uppercase tracking-wider flex items-center gap-3"
@@ -156,8 +156,8 @@ export default function Home() {
               </a>
             </div>
           </motion.div>
-          
-          <motion.div 
+
+          <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -175,9 +175,9 @@ export default function Home() {
               <div className="absolute inset-0 rounded-full border-[6px] sm:border-[10px] border-[#0047AB] shadow-[0_0_40px_rgba(0,71,171,0.2)]"></div>
               <div className="absolute inset-2 rounded-full border-[1px] border-blue-200/50"></div>
               <div className="w-full h-full rounded-full overflow-hidden bg-slate-100 relative shadow-inner">
-                <img 
+                <img
                   src={sarangImg}
-                  alt="Sarang Deore Profile" 
+                  alt="Sarang Deore Profile"
                   className="w-full h-full object-cover transform scale-110 transition-transform duration-700 hover:scale-120"
                 />
               </div>
@@ -189,12 +189,12 @@ export default function Home() {
       <section className="py-24 bg-slate-50/50" id="profile">
         <div className="w-full px-6 md:px-16 lg:px-[2in]">
           <div className="grid lg:grid-cols-12 gap-12 items-start">
-            
+
             {/* Left Column: Education & Objective */}
             <div className="lg:col-span-7 space-y-12">
               <div>
                 <h2 className="font-headline text-4xl font-bold text-slate-900 mb-8">Structural Profile</h2>
-                
+
                 <div className="space-y-8">
                   {/* NICMAR Education */}
                   <div className="flex gap-6 group">
@@ -215,8 +215,8 @@ export default function Home() {
                     <div>
                       <h3 className="font-headline text-xl font-bold text-slate-900">Career Objective</h3>
                       <p className="text-slate-600 leading-relaxed max-w-2xl">
-                        Determined to secure an internship where I can apply my analytical skills in Project Planning, 
-                        Cost Estimation, and Structural Analysis. Enthusiastic about the integration of GIS and 
+                        Determined to secure an internship where I can apply my analytical skills in Project Planning,
+                        Cost Estimation, and Structural Analysis. Enthusiastic about the integration of GIS and
                         Drone technology in modern construction.
                       </p>
                     </div>
@@ -225,15 +225,15 @@ export default function Home() {
                   {/* New Stats Row */}
                   <div className="flex flex-col sm:flex-row sm:items-center gap-6 sm:gap-12 pt-4 border-t border-slate-100">
                     <div className="flex flex-col">
-                      <span className="text-4xl font-headline font-black text-slate-900 leading-none">8.8</span>
-                      <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-2">CGPA Score</span>
+                      <span className="text-4xl font-headline font-black text-slate-900 leading-none"></span>
+                      <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-2"></span>
                     </div>
-                    
+
                     <div className="hidden sm:block w-[1px] h-12 bg-slate-200"></div>
 
                     <div className="flex flex-col">
-                      <span className="text-xl font-headline font-bold text-slate-900 leading-none">L&T EduTech</span>
-                      <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-2">Certified Professional</span>
+                      <span className="text-xl font-headline font-bold text-slate-900 leading-none"></span>
+                      <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-2"></span>
                     </div>
                   </div>
                 </div>
@@ -245,11 +245,11 @@ export default function Home() {
               {/* Interests Card */}
               <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 relative overflow-hidden group">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-blue-50/50 rounded-full -mr-16 -mt-16 transition-transform duration-700 group-hover:scale-150"></div>
-                
+
                 <div className="relative">
                   <div className="flex items-center gap-3 mb-6">
                     <div className="w-2 h-2 rounded-full bg-blue-600"></div>
-                    <h3 className="font-headline text-lg font-bold text-slate-900 tracking-tight">Interests & Specialization</h3>
+                    <h3 className="font-headline text-lg font-bold text-slate-900 tracking-tight">Interests</h3>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -270,14 +270,7 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Structural Render Image */}
-              <div className="rounded-2xl overflow-hidden shadow-lg border border-slate-200 group">
-                <img 
-                  src={structuralProfileImg} 
-                  alt="Structural Engineering Concept" 
-                  className="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-105"
-                />
-              </div>
+
             </div>
 
           </div>
@@ -295,21 +288,26 @@ export default function Home() {
             <div className="relative space-y-12 before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-slate-200">
               {[
                 {
-                  title: "L&T EduTech Specialized Training",
-                  date: "2024 - 2025",
+                  title: "Certifications & Training",
                   desc: "Completed Project Management in Construction specialization. Currently exploring GIS, Remote Sensing, and Drone technology for engineering surveys.",
                   icon: <Calendar className="w-5 h-5" />
                 },
                 {
-                  title: "NICMAR University Induction",
-                  date: "2023 - 2024",
-                  desc: "Enrolled in B.Tech Civil Engineering. Focused on foundational structural principles and mastered AutoCAD while maintaining a CGPA of 8.8.",
+                  title: "NICMAR University Pune",
+                  date: "2023 - 2027",
+                  desc: "B.Tech Civil Engineering.",
                   icon: <School className="w-5 h-5" />
                 },
                 {
                   title: "Secondary Education",
                   date: "May 2023",
-                  desc: "Completed Class XII with 81.83% and Class X with 79%, demonstrating consistent academic excellence in science and engineering fundamentals.",
+                  desc: "Completed Class XII with 81.83% demonstrating consistent academic excellence in science and engineering fundamentals.",
+                  icon: <Flag className="w-5 h-5" />
+                },
+                {
+                  title: "Primary Education",
+                  date: "May 2021",
+                  desc: "Completed Class X with 79% demonstrating consistent academic excellence in science and engineering fundamentals.",
                   icon: <Flag className="w-5 h-5" />
                 }
               ].map((item, idx) => (
@@ -427,7 +425,7 @@ export default function Home() {
                         <span className="block text-xs text-slate-500 font-sans mt-1">{exp.location}</span>
                       </div>
                     </div>
-                    
+
                     {exp.bullets && (
                       <ul className="space-y-4 mb-8">
                         {exp.bullets.map((bullet, i) => (
@@ -468,23 +466,23 @@ export default function Home() {
               A curation of academic research, design competitions, and technical drafting.
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
             {projectsData.map((project, idx) => (
-              <Link 
+              <Link
                 key={project._id || project.id}
-                to={`/project/${project.slug?.current || project.id}`} 
+                to={`/project/${project.slug?.current || project.id}`}
                 className={cn(
                   "group relative overflow-hidden rounded-sm bg-slate-900 w-full",
-                  idx === 0 ? "md:col-span-8 aspect-[16/10]" : 
-                  idx === 1 ? "md:col-span-4 aspect-[10/16] md:aspect-auto" : 
-                  idx === 4 ? "md:col-span-12 aspect-[21/9]" : 
-                  "md:col-span-6 aspect-video"
+                  idx === 0 ? "md:col-span-8 aspect-[16/10]" :
+                    idx === 1 ? "md:col-span-4 aspect-[10/16] md:aspect-auto" :
+                      idx === 4 ? "md:col-span-12 aspect-[21/9]" :
+                        "md:col-span-6 aspect-video"
                 )}
               >
                 {project.thumbnailUrl || project.thumbnail ? (
-                  <img 
-                    src={project.thumbnail ? urlFor(project.thumbnail).width(1200).height(800).fit('crop').auto('format').url() : project.thumbnailUrl} 
+                  <img
+                    src={project.thumbnail ? urlFor(project.thumbnail).width(1200).height(800).fit('crop').auto('format').url() : project.thumbnailUrl}
                     className="w-full h-full object-cover opacity-60 transition-transform duration-700 group-hover:scale-105"
                     referrerPolicy="no-referrer"
                     alt={project.title || "Project Thumbnail"}
@@ -512,7 +510,7 @@ export default function Home() {
                   <p className="text-white/70 text-sm max-w-xl mb-6 line-clamp-2">
                     {project.shortDesc}
                   </p>
-                  
+
                   {(project.keyHighlights || []).length > 0 && (
                     <div className="flex flex-wrap gap-3 mb-6">
                       {(project.keyHighlights || []).slice(0, 3).map((highlight: string) => (
@@ -524,13 +522,13 @@ export default function Home() {
                     </div>
                   )}
 
-                  <div className="flex justify-between items-end">
-                    <div className="flex gap-4 text-[10px] font-bold text-blue-400 uppercase tracking-widest overflow-hidden">
-                      <span className="whitespace-nowrap">{project.category}</span>
-                      <span className="whitespace-nowrap">•</span>
-                      <span className="whitespace-nowrap">{project.impact}</span>
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-4 mt-auto">
+                    <div className="flex flex-wrap items-center gap-2 text-[10px] font-bold text-blue-400 uppercase tracking-widest">
+                      <span>{project.category}</span>
+                      <span className="text-blue-400/50">•</span>
+                      <span>{project.impact}</span>
                     </div>
-                    <div className="flex items-center gap-2 text-white/40 text-[9px] font-black uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
+                    <div className="flex items-center gap-2 text-white/40 text-[9px] font-black uppercase tracking-widest sm:opacity-0 group-hover:opacity-100 transition-opacity">
                       <span>View Project Detail</span>
                       <ArrowRight className="w-3 h-3 translate-y-[-0.5px]" />
                     </div>
@@ -599,7 +597,7 @@ export default function Home() {
             <div>
               <span className="font-sans text-[10px] uppercase tracking-[0.3em] text-[#8B7355] font-bold">INQUIRY</span>
               <h2 className="font-serif text-5xl md:text-6xl font-bold mt-8 mb-16 leading-tight">Let's build something<br />enduring together.</h2>
-              
+
               <div className="space-y-10">
                 <div className="flex items-center gap-6">
                   <div className="w-12 h-12 bg-slate-50 rounded-lg flex items-center justify-center">
@@ -638,26 +636,26 @@ export default function Home() {
               <form className="space-y-10" onSubmit={handleSubmit}>
                 <div className="space-y-2">
                   <label className="block text-[10px] font-bold uppercase tracking-widest text-slate-400">FULL NAME</label>
-                  <input 
+                  <input
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full border-b border-slate-200 py-2 text-sm focus:border-[#0047AB] transition-all outline-none placeholder:text-slate-200" 
-                    placeholder="John Doe" 
-                    type="text" 
+                    className="w-full border-b border-slate-200 py-2 text-sm focus:border-[#0047AB] transition-all outline-none placeholder:text-slate-200"
+                    placeholder="John Doe"
+                    type="text"
                   />
                   {errors.name && <p className="text-red-500 text-[10px] font-bold uppercase">{errors.name}</p>}
                 </div>
 
                 <div className="space-y-2">
                   <label className="block text-[10px] font-bold uppercase tracking-widest text-slate-400">EMAIL ADDRESS</label>
-                  <input 
+                  <input
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full border-b border-slate-200 py-2 text-sm focus:border-[#0047AB] transition-all outline-none placeholder:text-slate-200" 
-                    placeholder="john@company.com" 
-                    type="email" 
+                    className="w-full border-b border-slate-200 py-2 text-sm focus:border-[#0047AB] transition-all outline-none placeholder:text-slate-200"
+                    placeholder="john@company.com"
+                    type="email"
                   />
                   {errors.email && <p className="text-red-500 text-[10px] font-bold uppercase">{errors.email}</p>}
                 </div>
@@ -665,7 +663,7 @@ export default function Home() {
                 <div className="space-y-2">
                   <label className="block text-[10px] font-bold uppercase tracking-widest text-slate-400">SUBJECT</label>
                   <div className="relative">
-                    <select 
+                    <select
                       name="subject"
                       value={formData.subject}
                       onChange={(e: React.ChangeEvent<HTMLSelectElement>) => handleChange(e as any)}
@@ -685,27 +683,27 @@ export default function Home() {
 
                 <div className="space-y-2">
                   <label className="block text-[10px] font-bold uppercase tracking-widest text-slate-400">MESSAGE</label>
-                  <textarea 
+                  <textarea
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
-                    className="w-full border-b border-slate-200 py-2 text-sm focus:border-[#0047AB] transition-all outline-none placeholder:text-slate-200 min-h-[100px] resize-none" 
-                    placeholder="How can I help with your next project?" 
+                    className="w-full border-b border-slate-200 py-2 text-sm focus:border-[#0047AB] transition-all outline-none placeholder:text-slate-200 min-h-[100px] resize-none"
+                    placeholder="How can I help with your next project?"
                   ></textarea>
                   {errors.message && <p className="text-red-500 text-[10px] font-bold uppercase">{errors.message}</p>}
                 </div>
 
-                <button 
+                <button
                   disabled={isSubmitting}
-                  className="w-full bg-[#0047AB] text-white font-bold py-5 rounded-sm hover:bg-blue-800 transition-all disabled:opacity-50 flex items-center justify-center gap-3 text-xs uppercase tracking-widest" 
+                  className="w-full bg-[#0047AB] text-white font-bold py-5 rounded-sm hover:bg-blue-800 transition-all disabled:opacity-50 flex items-center justify-center gap-3 text-xs uppercase tracking-widest"
                   type="submit"
                 >
                   {isSubmitting ? <Loader2 className="w-4 h-4 animate-spin" /> : 'Send Proposal'}
                 </button>
-                
+
                 <AnimatePresence>
                   {errors.submit && (
-                    <motion.div 
+                    <motion.div
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -10 }}
@@ -715,7 +713,7 @@ export default function Home() {
                     </motion.div>
                   )}
                   {isSuccess && (
-                    <motion.div 
+                    <motion.div
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -10 }}
