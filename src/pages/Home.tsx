@@ -126,13 +126,13 @@ export default function Home() {
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
-            className="md:col-span-7 pr-0 lg:pr-12"
+            className="md:col-span-8 lg:col-span-7 pr-0 lg:pr-12"
           >
             <div className="inline-flex items-center gap-2 mb-8 bg-[#F2E8CF] px-4 py-1.5 rounded-full border border-[#DBC8A0]">
               <span className="w-2 h-2 bg-[#8B7355] rounded-full"></span>
               <span className="font-sans text-[10px] uppercase tracking-widest font-bold text-[#8B7355]">SEEKING INTERNSHIP OPPORTUNITIES</span>
             </div>
-            <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight text-slate-900 mb-8 leading-[1.1] break-words">
+            <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-8xl font-bold tracking-tighter text-slate-900 mb-8 leading-[1.1]">
               <span className="text-[#0047AB]">Civil</span><br />
               <span className="text-[#0047AB]">Engineering</span> Undergraduate.
             </h1>
@@ -157,7 +157,7 @@ export default function Home() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="md:col-span-5 relative flex justify-center items-center"
+            className="md:col-span-4 lg:col-span-5 relative flex justify-center items-center"
           >
             {/* Animated Rings Background */}
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
