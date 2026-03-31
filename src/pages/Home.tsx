@@ -1,7 +1,8 @@
 import {
   ArrowRight, School, HardHat, Calendar, Flag, BarChart3, Ruler, Code,
   Radar, Verified, Mail, MapPin, Loader2, Linkedin,
-  Presentation, GraduationCap, Target, Settings, Building2, Map, Plane
+  Presentation, GraduationCap, Target, Settings, Building2, Map, Plane, ChevronRight,
+  Cpu, Activity, Layers
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Link, useLocation } from 'react-router-dom';
@@ -186,91 +187,92 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-24 bg-slate-50/50" id="profile">
-        <div className="w-full px-6 md:px-16 lg:px-[2in]">
-          <div className="grid lg:grid-cols-12 gap-12 items-start">
+      <section className="py-32 bg-white relative overflow-hidden" id="profile">
+        {/* Background Decorative Elements */}
+        <div className="absolute inset-0 bg-slate-50/50" />
+        <div className="absolute inset-0 blueprint-grid opacity-30" />
 
-            {/* Left Column: Education & Objective */}
-            <div className="lg:col-span-7 space-y-12">
-              <div>
-                <h2 className="font-headline text-4xl font-bold text-slate-900 mb-8">Structural Profile</h2>
+        {/* Abstract shapes */}
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-100/50 rounded-full blur-[100px] -mr-48 -mt-48 pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-indigo-50/50 rounded-full blur-[80px] -ml-20 -mb-20 pointer-events-none" />
 
-                <div className="space-y-8">
-                  {/* NICMAR Education */}
-                  <div className="flex gap-6 group">
-                    <div className="flex-shrink-0 w-14 h-14 rounded-xl bg-blue-100 flex items-center justify-center text-blue-600 transition-colors group-hover:bg-blue-600 group-hover:text-white">
-                      <GraduationCap className="w-8 h-8" />
-                    </div>
-                    <div>
-                      <h3 className="font-headline text-xl font-bold text-slate-900">NICMAR University, Pune</h3>
-                      <p className="text-slate-600 font-medium">B.Tech Civil Engineering (2023–2027)</p>
-                    </div>
+        <div className="w-full px-6 md:px-16 lg:px-[2in] relative z-10">
+          <div className="mb-20">
+            <span className="font-sans text-[10px] uppercase tracking-[0.3em] text-blue-600 font-bold">ABOUT</span>
+            <h2 className="font-headline text-5xl md:text-6xl font-bold text-slate-900 mt-4 tracking-tight">
+              Structural Profile<span className="text-blue-600">.</span>
+            </h2>
+          </div>
+
+          <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-stretch">
+            {/* Main Cards column */}
+            <div className="lg:col-span-7 flex flex-col gap-6">
+
+              {/* Education Card */}
+              <div className="group relative bg-white rounded-3xl p-8 md:p-10 border border-slate-200/60 shadow-xl shadow-slate-200/20 overflow-hidden hover:border-blue-300 transition-colors duration-500">
+                <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 group-hover:scale-110 transition-all duration-700">
+                  <GraduationCap className="w-48 h-48" />
+                </div>
+                <div className="relative z-10 flex flex-col sm:flex-row gap-8 items-start sm:items-center">
+                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-white shadow-lg shadow-blue-500/30 shrink-0 transform -rotate-3 group-hover:rotate-0 transition-transform duration-500">
+                    <GraduationCap className="w-8 h-8" />
                   </div>
-
-                  {/* Career Objective */}
-                  <div className="flex gap-6 group">
-                    <div className="flex-shrink-0 w-14 h-14 rounded-xl bg-blue-100 flex items-center justify-center text-blue-600 transition-colors group-hover:bg-blue-600 group-hover:text-white">
-                      <Target className="w-8 h-8" />
-                    </div>
-                    <div>
-                      <h3 className="font-headline text-xl font-bold text-slate-900">Career Objective</h3>
-                      <p className="text-slate-600 leading-relaxed max-w-2xl">
-                        Determined to secure an internship where I can apply my analytical skills in Project Planning,
-                        Cost Estimation, and Structural Analysis. Enthusiastic about the integration of GIS and
-                        Drone technology in modern construction.
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* New Stats Row */}
-                  <div className="flex flex-col sm:flex-row sm:items-center gap-6 sm:gap-12 pt-4 border-t border-slate-100">
-                    <div className="flex flex-col">
-                      <span className="text-4xl font-headline font-black text-slate-900 leading-none"></span>
-                      <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-2"></span>
-                    </div>
-
-                    <div className="hidden sm:block w-[1px] h-12 bg-slate-200"></div>
-
-                    <div className="flex flex-col">
-                      <span className="text-xl font-headline font-bold text-slate-900 leading-none"></span>
-                      <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-2"></span>
-                    </div>
+                  <div>
+                    <div className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">Education</div>
+                    <h3 className="font-headline text-2xl font-bold text-slate-900 mb-2">NICMAR University, Pune</h3>
+                    <p className="text-blue-600 font-semibold tracking-wide flex items-center gap-3">B.Tech Civil Engineering <span className="h-1 w-1 rounded-full bg-slate-300"></span> <span className="text-slate-400 font-normal">2023 &mdash; 2027</span></p>
                   </div>
                 </div>
               </div>
+
+              {/* Objective Card */}
+              <div className="group relative bg-white rounded-3xl p-8 md:p-10 border border-slate-200/60 shadow-xl shadow-slate-200/20 overflow-hidden hover:border-blue-300 transition-colors duration-500">
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+
+                <div className="relative z-10 flex flex-col gap-6">
+                  <div className="flex items-center gap-4 border-b border-slate-100 pb-6">
+                    <div className="w-12 h-12 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center text-blue-600 group-hover:scale-110 transition-transform duration-500">
+                      <Target className="w-6 h-6" />
+                    </div>
+                    <div className="text-[10px] font-black uppercase tracking-widest text-slate-400">Career Objective</div>
+                  </div>
+                  <h3 className="text-lg font-headline font-medium text-slate-900 leading-relaxed tracking-wide">
+                    I aim to position myself at the intersection of Civil Engineering and technology by building solutions that go beyond traditional methods, whether it’s smart infrastructure, data-driven planning, or system-based engineering tools. Instead of just following standard practices, I focus on creating practical, real-world applications that add measurable value. With a strong inclination toward innovation, problem-solving, and continuous self-upgrading, I am working towards roles that demand both engineering depth and modern technical adaptability. My long-term goal is to contribute to projects that are not just functional, but intelligent, scalable, and future-ready, while achieving top-tier professional growth.
+                  </h3>
+                </div>
+              </div>
+
             </div>
 
-            {/* Right Column: Interests & Visual */}
-            <div className="lg:col-span-5 space-y-8">
-              {/* Interests Card */}
-              <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 relative overflow-hidden group">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-blue-50/50 rounded-full -mr-16 -mt-16 transition-transform duration-700 group-hover:scale-150"></div>
-
-                <div className="relative">
-                  <div className="flex items-center gap-3 mb-6">
-                    <div className="w-2 h-2 rounded-full bg-blue-600"></div>
-                    <h3 className="font-headline text-lg font-bold text-slate-900 tracking-tight">Interests</h3>
+            {/* Right Column / Interests */}
+            <div className="lg:col-span-5 h-full">
+              <div className="h-full bg-white rounded-3xl p-8 md:p-10 border border-slate-200/60 shadow-xl shadow-slate-200/20 relative overflow-hidden flex flex-col">
+                <div className="flex items-center gap-4 mb-10 border-b border-slate-100 pb-6">
+                  <div className="relative flex h-3 w-3">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-3 w-3 bg-blue-500"></span>
                   </div>
+                  <h3 className="font-headline text-lg font-bold text-slate-900 tracking-widest uppercase">Interests</h3>
+                </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    {[
-                      { name: "Construction Management", icon: <Settings className="w-4 h-4" /> },
-                      { name: "Structural Engineering", icon: <Building2 className="w-4 h-4" /> },
-                      { name: "GIS & Remote Sensing", icon: <Map className="w-4 h-4" /> },
-                      { name: "Drone Surveying", icon: <Plane className="w-4 h-4" /> }
-                    ].map((interest) => (
-                      <div key={interest.name} className="flex items-center gap-3 p-3 rounded-lg bg-slate-50 border border-slate-100 hover:border-blue-200 transition-colors group/item">
-                        <div className="text-blue-600 group-hover/item:scale-110 transition-transform">
-                          {interest.icon}
-                        </div>
-                        <span className="text-xs font-bold text-slate-700">{interest.name}</span>
+                <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 auto-rows-fr gap-3 lg:gap-4 w-full">
+                  {[
+                    { name: "Smart Infrastructure", icon: <Cpu className="w-5 h-5" />, color: "text-blue-600", bg: "bg-blue-100/60" },
+                    { name: "Structural Health Monitoring", icon: <Activity className="w-5 h-5" />, color: "text-red-500", bg: "bg-red-100/60" },
+                    { name: "GIS & Urban Analytics", icon: <Map className="w-5 h-5" />, color: "text-emerald-600", bg: "bg-emerald-100/60" },
+                    { name: "BIM & Digital Construction", icon: <Layers className="w-5 h-5" />, color: "text-indigo-600", bg: "bg-indigo-100/60" },
+                    { name: "Data-Driven Engineering", icon: <BarChart3 className="w-5 h-5" />, color: "text-amber-500", bg: "bg-amber-100/60" },
+                    { name: "Drone & Remote Sensing Technology", icon: <Radar className="w-5 h-5" />, color: "text-purple-600", bg: "bg-purple-100/60" }
+                  ].map((interest) => (
+                    <div key={interest.name} className="flex flex-col items-start gap-4 p-4 lg:p-5 rounded-3xl bg-slate-50 border border-slate-100 hover:bg-white hover:border-slate-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-default group/item h-full">
+                      <div className={cn("w-12 h-12 shrink-0 rounded-2xl flex items-center justify-center shadow-sm group-hover/item:scale-110 group-hover/item:rotate-3 transition-all duration-300", interest.bg, interest.color)}>
+                        {interest.icon}
                       </div>
-                    ))}
-                  </div>
+                      <span className="text-xs sm:text-sm font-bold text-slate-800 tracking-tight leading-tight group-hover/item:text-blue-600 transition-colors">{interest.name}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
-
-
             </div>
 
           </div>
