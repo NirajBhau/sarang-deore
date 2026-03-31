@@ -45,6 +45,10 @@ export async function getProjects() {
       name,
       type,
       "url": file.asset->url
+    },
+    "galleryImages": galleryImages[]{
+      ...,
+      "url": asset->url
     }
   }`;
   return await client.fetch(query);
@@ -61,6 +65,10 @@ export async function getProjectBySlug(slug: string) {
       name,
       type,
       "url": file.asset->url
+    },
+    "galleryImages": galleryImages[]{
+      ...,
+      "url": asset->url
     }
   }`;
   return await client.fetch(query, { slug });

@@ -308,7 +308,28 @@ export default function ProjectDetail() {
           )}
         </section>
 
-
+        {/* Section 3: Project Gallery */}
+        {(project.galleryImages?.length > 0 || project.labResultsUrl) && (
+          <section className="max-w-full px-6 md:px-16 space-y-8 pb-16">
+            <div className="flex items-center gap-4">
+              <div className="w-8 h-[2px] bg-blue-600"></div>
+              <h2 className="text-2xl font-headline font-bold text-slate-900 tracking-tight">Project Visuals & Lab Findings</h2>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[...(project.labResultsUrl ? [project.labResultsUrl] : []), ...(project.galleryImages || [])].map((img: any, idx: number) => (
+                <div key={idx} className="aspect-video w-full rounded-sm overflow-hidden border border-slate-200 shadow-sm bg-slate-100 relative group">
+                  <img
+                    src={img.url ? img.url : typeof img === 'string' ? img : img.asset ? urlFor(img).width(800).height(600).fit('crop').auto('format').url() : ''}
+                    alt={`Project Visual ${idx + 1}`}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    referrerPolicy="no-referrer"
+                  />
+                  <div className="absolute inset-0 ring-1 ring-inset ring-black/10 pointer-events-none"></div>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
 
       </main>
 
